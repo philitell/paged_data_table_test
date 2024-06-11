@@ -1,8 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:paged_data_table_test/post.dart';
 import 'package:paged_datatable/paged_datatable.dart';
+
+import 'generated/l10n.dart';
 
 class TableTestPage extends StatefulWidget {
   const TableTestPage({super.key});
@@ -49,6 +52,20 @@ class _TableTestPageState extends State<TableTestPage> {
               chipFormatter: (value) => 'Author is ${value.name.toLowerCase()}',
               id: "authorGender",
               name: "Author's Gender",
+            ),
+            DateRangePickerTableFilter(
+              id: "date",
+              name: "test",
+              formatter: (DateTimeRange dateRange) => S
+                  .of(context)
+                  .betweenDates(DateFormat.yMd().format(dateRange.start), DateFormat.yMd().format(dateRange.end)),
+              chipFormatter: (DateTimeRange dateRange) => S
+                  .of(context)
+                  .betweenDates(DateFormat.yMd().format(dateRange.start), DateFormat.yMd().format(dateRange.end)),
+              initialValue: null,
+              firstDate: DateTime(2023, 10, 1),
+              lastDate: DateTime.now(),
+              enabled: true,
             ),
           ],
           filterBarChild: PopupMenuButton(

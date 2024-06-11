@@ -20,8 +20,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'de';
 
+  static String m0(startDate, endDate) =>
+      "Zwischen ${startDate} und ${endDate}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "betweenDates": m0,
+        "filterTitleDate":
+            MessageLookupByLibrary.simpleMessage("Tourdatum von/bis"),
         "language": MessageLookupByLibrary.simpleMessage("deutsch")
       };
 }

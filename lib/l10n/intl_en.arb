@@ -1,3 +1,5 @@
 {
-  "language": "english"
+  "language": "english",
+  "filterTitleDate": "Date from/to",
+  "betweenDates": "Between {startDate} and {endDate}"
 }

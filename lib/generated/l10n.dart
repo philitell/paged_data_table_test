@@ -59,6 +59,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Date from/to`
+  String get filterTitleDate {
+    return Intl.message(
+      'Date from/to',
+      name: 'filterTitleDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Between {startDate} and {endDate}`
+  String betweenDates(Object startDate, Object endDate) {
+    return Intl.message(
+      'Between $startDate and $endDate',
+      name: 'betweenDates',
+      desc: '',
+      args: [startDate, endDate],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

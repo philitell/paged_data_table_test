@@ -1,3 +1,5 @@
 {
-  "language": "deutsch"
+  "language": "deutsch",
+  "filterTitleDate": "Tourdatum von/bis",
+  "betweenDates": "Zwischen {startDate} und {endDate}"
 }
