@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import "package:flutter_localizations/flutter_localizations.dart";
 import 'package:form_builder_validators/localization/l10n.dart';
+import 'package:paged_data_table_test/post.dart';
+import 'package:paged_data_table_test/table_test_page.dart';
 import 'package:paged_datatable/l10n/generated/l10n.dart';
 
 import 'generated/l10n.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  // await initializeDateFormatting("en");
+
+  PostsRepository.generate(500);
+
   runApp(const MyApp());
 }
 
@@ -60,11 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(S.of(context).language),
             Text(PagedDataTableLocalization.of(context).nextPageButtonText),
             Localizations.override(
-                context: context,
-                // NOTE: if you change this line to "en", "it" or "es" then the text is shown in the correct language
-                // "de" is not working
-                locale: const Locale(overriddenLocale),
-                child: Builder(builder: (context) {
+              context: context,
+              // NOTE: if you change this line to "en", "it" or "es" then the text is shown in the correct language
+              // "de" is not working
+              locale: const Locale(overriddenLocale),
+              child: Builder(
+                builder: (context) {
                   return Column(
                     children: [
                       const SizedBox(
@@ -76,7 +84,19 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text(FormBuilderLocalizations.of(context).emailErrorText),
                     ],
                   );
-                })),
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const TableTestPage()),
+              ),
+              child: const Text("table test page"),
+            )
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.

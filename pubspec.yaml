@@ -19,6 +19,8 @@ dependencies:
   paged_datatable: ^2.1.0
   intl: any
   form_builder_validators: ^10.0.1
+  faker: any
+  darq: any
 
 dev_dependencies:
   flutter_test:
